@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import ThemeProvider from "@/components/ThemeProvider";
+
+import { cookies } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,14 +20,26 @@ export const metadata = {
   description: "Database containing movies and shows, like IMdb",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const cookieStore = await cookies()
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
+  
+  
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          defaultOpen="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header/>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
