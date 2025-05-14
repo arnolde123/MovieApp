@@ -5,6 +5,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 
 import { cookies } from "next/headers";
 import Navbar from "@/components/Navbar";
+import SearchBox from "@/components/SearchBox";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Header/>
+          <SearchBox/>
           <Navbar/>
           {children}
         </ThemeProvider>
