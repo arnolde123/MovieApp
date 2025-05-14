@@ -14,6 +14,7 @@ export default function MovieCard({ result }) {
             src={`https://image.tmdb.org/t/p/original/${
               result.backdrop_path || result.poster_path
             }`}
+            alt="Movie poster image"
             width={500}
             height={300}
             className='sm:rounded-t-lg group-hover:opacity-75 transition-opacity duration-300'
