@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import ThemeProvider from "@/components/ThemeProvider";
 
 import { cookies } from "next/headers";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,8 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 dark:bg-black`}
+        
       >
         <ThemeProvider
           attribute="class"
@@ -38,6 +40,7 @@ export default async function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Header/>
+          <Navbar/>
           {children}
         </ThemeProvider>
       </body>
