@@ -10,4 +10,4 @@ const nextConfig = {
     ],
   },
 };
-module.exports = nextConfig; // ✅ CommonJS syntax
+module.exports = nextConfig;
