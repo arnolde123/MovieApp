@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ThemeProvider from "@/components/ThemeProvider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { cookies } from "next/headers";
 import Navbar from "@/components/Navbar";
@@ -18,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Movie App",
+  title: "Movie Base",
   description: "Database containing movies and shows, like IMdb",
 };
 
@@ -28,24 +29,27 @@ export default async function RootLayout({ children }) {
   
   
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-600 dark:bg-black`}
-        
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          defaultOpen="system"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-600 dark:bg-black`}
+          
         >
-          <Header/>
-          <SearchBox/>
-          <Navbar/>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            defaultOpen="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header/>
+            <SearchBox/>
+            <Navbar/>
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+
+    </ClerkProvider>
   );
 }
