@@ -18,8 +18,8 @@ export default function NavbarItem({title, param}) {
         <Link
           className={`
             ${genre === param 
-              ? 'text-primary dark:text-primary-foreground underline underline-offset-8 decoration-4 decoration-green-500 dark:decoration-green-400' 
-              : 'text-foreground hover:text-green-600 dark:hover:text-green-300'
+              ? "text-primary dark:text-primary-foreground underline underline-offset-8 decoration-4"
+                : "text-foreground hover:text-[var(--theme-purple)] dark:hover:text-[var(--theme-purple)]"
             }
           `}
           href={`/?genre=${param}`}

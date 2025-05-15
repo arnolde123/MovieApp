@@ -6,7 +6,9 @@ import { Card, CardContent, CardHeader } from './ui/card';
 export default function MovieCard({ result }) {
   return (
     <div className='group cursor-pointer sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:border-slate-400 sm:m-2 transition-shadow duration-200'>
-      <Card className="bg-green-300 dark:bg-green-700">
+      <Card 
+        className="bg-[var(--theme-purple)] transition-colors border border-border"
+      >
         <Link href={`/movie/${result.id}`}>
           {/* Movie Poster/Image */}
           <CardHeader>

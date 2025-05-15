@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 dark:bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-600 dark:bg-black`}
         
       >
         <ThemeProvider

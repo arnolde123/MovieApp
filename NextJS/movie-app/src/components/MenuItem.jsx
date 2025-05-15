@@ -1,12 +1,15 @@
-import Link from 'next/link'
-import React from 'react'
-import { Button } from './ui/button'
-import { HomeIcon, InfoIcon } from 'lucide-react'
+import Link from "next/link"
+import { Button } from "./ui/button"
+import { HomeIcon, InfoIcon } from "lucide-react"
 
 export default function MenuItem({ title, address }) {
   return (
-    <Button asChild variant="ghost">
-      <Link href={address} className="flex items-center gap-4 hover:text-green-600">
+    <Button 
+      asChild 
+      variant="ghost"
+      className="hover:bg-[var(--theme-purple)]"
+    >
+      <Link href={address} className="flex items-center gap-4 transition-colors hover:text-[var(--theme-purple)]">
         {/* Render Icons on Small screens */}
         {title === "Home" ? (
           <HomeIcon className="text-2xl sm:hidden" />
